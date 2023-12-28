@@ -8,12 +8,47 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if alert %>
+      <div class="flex items-center bg-rose-600 absolute text-white leading-none h-10 px-3 right-10 bottom-10">
+        <i class="material-icons material-icons-outlined mr-3">
+          error
+        </i>
+
+        <div class="leading-none min-w-80">
+          <%= alert %>
+        </div>
+
+        <i class="material-icons material-icons-outlined ml-2">
+          close
+        </i>
+      </div>
+    <% end %>
+
+    <% if notice %>
+      <div class="flex items-center bg-emerald-600 absolute text-white leading-none h-10 px-3 right-10 bottom-10">
+        <i class="material-icons material-icons-outlined mr-3">
+          check_circle
+        </i>
+
+        <div class="leading-none min-w-80">
+          <%= notice %>
+        </div>
+
+        <i class="material-icons material-icons-outlined ml-2">
+          close
+        </i>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
 </html>
+
+
