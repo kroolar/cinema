@@ -1,26 +1,51 @@
-<h2>Log in</h2>
+<div class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="rounded border p-10 bg-white w-96">
+    <div class="text-2xl pb-4">Cinema World</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%# <form action={action} className={className} method={formMethod}>
+      <CSRFToken />
+      <input type="hidden" name="_method" value={method} />
+      {children}
+    </form>
+      const value = document.querySelector('meta[name="csrf-token"]')?.content
+
+  return (
+    <input
+      name="authenticity_token"
+      type="hidden"
+      value={value}
+    />
+  ) %>
+    <form action="/users/sign_in" method="POST">
+      <label class="flex leading-none text-xs font-light text-gray-900">
+        Email
+      </label>
+      <input
+        class="mb-2 border-2 w-full border-gray-900 h-10 leading-none px-2"
+        name="user[email]"
+      />
+
+      <label class="flex leading-none text-xs font-light text-gray-900">
+        Password
+      </label>
+
+      <input
+        class="mb-4 w-full border-2 border-gray-900 h-10 leading-none px-2"
+        type="password"
+        name="user[password]"
+      />
+      
+      <button
+        class="h-10 w-full duration-300 hover:bg-gray-700 bg-gray-900 text-gray-50 px-4 border leading-none"
+        type="submit"
+      >
+        Sign In
+      </button>
+    </form>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="hidden">
+  asd
+  <%= render "devise/shared/links" %>
+</div>
