@@ -1,3 +1,11 @@
+## [0.2.0] - 2023-12-28
+
+### ADDED
+- Material Icons
+- Logout Link
+- Styles for Flash Messages
+- Styles for Sign In Form
+
 ## [0.1.0] - 2023-12-16
 
 ### ADDED
