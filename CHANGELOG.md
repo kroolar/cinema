@@ -1,3 +1,19 @@
+## [0.3.0] - 2023-12-29
+
+### ADDED
+- Vite
+- React
+- Button Component
+- CSRF Component
+- Form Component
+- Icon Component
+- Input Component
+- Label Component
+- Menu Component
+- Toast Component
+- Sign In Page
+- Dashboard Page
+
 ## [0.2.0] - 2023-12-28
 
 ### ADDED
