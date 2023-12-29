@@ -11,6 +11,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet"></link>
 
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
@@ -26,68 +27,11 @@
 
   </head>
 
-  <body class="bg-gray-100 p-10">
-    <nav class="bg-white w-64 h-screen p-6">
-      <div class="flex items-center text-gray-900 hover:bg-gray-100 p-2 duration-300 leading-none cursor-pointer">
-        <i class="material-icons material-icons-outlined mr-2">
-          dashboard
-        </i>
+  <body class="bg-gray-100 flex p-10">
+    <%= react :menu, { render: signed_in? } %>
 
-        <div class="text-lg">Dashboard</div>
-      </div>
-
-    <%= form_with url: "/users/sign_out", method: :delete do |form| %>
-      <div class="flex items-center text-gray-900 hover:bg-gray-100 p-2 duration-300 leading-none cursor-pointer">
-        <i class="material-icons material-icons-outlined mr-2">
-          logout
-        </i>
-
-        <%= form.submit "Search" %>
-      </div>
-    <% end %>
-
-    <%# <form
-      turbolink="false"
-      class="button_to"
-      method="post"
-      action="/users/sign_out"
-    ><input type="hidden" name="_method" value="delete" autocomplete="off"><button type="submit">Logout</button><input type="hidden" name="authenticity_token" value="no3IZqICkivajExOscdWjakQONRLn8wpYhFpLoGxNgzBWMWysAxNgOqdSPzTzpRntH_waSvace4sP_EelZ0wJQ" autocomplete="off"></form> %>
-
-<%# <%= button_to 'Logout', destroy_user_session_path, method: :delete, form: {turbolink: false} %> %>
-
-    </nav>
-
-    <% if alert %>
-      <div class="flex items-center bg-rose-600 absolute text-white leading-none h-10 px-3 right-10 bottom-10">
-        <i class="material-icons material-icons-outlined mr-3">
-          error
-        </i>
-
-        <div class="leading-none min-w-80">
-          <%= alert %>
-        </div>
-
-        <i class="material-icons material-icons-outlined ml-2">
-          close
-        </i>
-      </div>
-    <% end %>
-
-    <% if notice %>
-      <div class="flex items-center bg-emerald-600 absolute text-white leading-none h-10 px-3 right-10 bottom-10">
-        <i class="material-icons material-icons-outlined mr-3">
-          check_circle
-        </i>
-
-        <div class="leading-none min-w-80">
-          <%= notice %>
-        </div>
-
-        <i class="material-icons material-icons-outlined ml-2">
-          close
-        </i>
-      </div>
-    <% end %>
+    <%= react :toast, { type: :error, text: alert } %>
+    <%= react :toast, { type: :success, text: notice } %>
 
     <%= yield %>
   </body>
